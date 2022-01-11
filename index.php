@@ -2,11 +2,10 @@
 
 // Sesión iniciada
 session_start();
-
-// Cargamos los parámetros principales
-require_once 'config/parameters.php';
 // Cargamos los controladores
 require_once 'autoload.php';
+// Cargamos los parámetros principales
+require_once 'config/parameters.php';
 // Cargamos la BBDD
 require_once 'config/db.php';
 // Carga de funciones varias
@@ -14,7 +13,7 @@ require_once 'helpers/utils.php';
 
 // Cargamos la estructura de las páginas
 require_once 'views/layout/header.php';
-// require_once 'views/layout/sidebar.php';
+require_once 'views/layout/container.php';
 
 function show_error()
 {
@@ -31,7 +30,7 @@ if (isset($_GET['controller'])) {
   exit();
 }
 
-/* if (class_exists($nombre_controlador)) {
+if (class_exists($nombre_controlador)) {
   $controlador = new $nombre_controlador();
 
   if (isset($_GET['action']) && method_exists($controlador, $_GET['action'])) {
@@ -46,6 +45,5 @@ if (isset($_GET['controller'])) {
 } else {
   show_error();
 }
- */
 
 require_once 'views/layout/footer.php';

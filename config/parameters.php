@@ -5,7 +5,7 @@ define("base_url", "http://localhost/New_Primitiva/");
 
 // Presentación por defecto.
 define("controller_default", "apuestaController");
-define("action_default", "inicio");
+define("action_default", "index");
 
 
 /* TEST O PRODUCTIVO */
