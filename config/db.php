@@ -7,7 +7,7 @@ class Database
   public static function connect()
   {
 
-    $db = new mysqli('localhost', 'root', '', 'tienda_master');
+    $db = new mysqli(app_host, app_user, app_pass, app_dbname);
     if ($db->connect_errno) {
       echo "Fallo al conectar a MySQL: (" . $db->connect_errno . ") " . $db->connect_error;
       die();

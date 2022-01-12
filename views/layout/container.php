@@ -3,21 +3,45 @@
   <!-- Fila del contenedor - Inicio-->
   <div class="row">
 
-    <div class="col-sm-3 p-3 mb-2 bg-primary text-white">
-      <h3 class="color-primary">Entrar a la página</h3>
+    <div class="col-sm-3 p-3 mb-2 bg-secondary text-white">
+      <aside class="container">
 
-      <form action="<?= base_url ?>usuario/login" method="post">
-        <label for="email">Email</label>
-        <input type="email" name="email" />
+        <?php if (!isset($_SESSION[app_sesion_usuario])) : ?>
 
-        <label for="password">Contraseña</label>
-        <input type="password" name="password" />
+          <h4 class="color-primary mt-3">Entrar a la página</h4>
+          <form action="<?= app_base_url ?>usuario/login" method="post">
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" name="email" />
+              <div id="emailHelp" class="form-text">Nunca compartas tu email con otras personas.</div>
+            </div>
 
-        <input type="submit" value="Enviar" />
-      </form>
+            <div class="mb-3">
+              <label for="password" class="form-label">Contraseña</label>
+              <input type="password" class="form-control" name="password" />
+            </div>
 
+            <button type="submit" class="btn btn-primary">Enviar</button>
+          </form>
 
+        <?php else :  ?>
+          <h4 class="color-primary mt-3"><?= $_SESSION[app_sesion_usuario]->usernombre ?></h4>
+        <?php endif; ?>
+
+        <ul class="nav flex-column">
+          <?php if (isset($_SESSION[app_sesion_admin])) : ?>
+            <li class="nav-item"><a class="nav-link" href="<?= app_base_url ?>usuario/listar">Gestionar usuarios</a></li>
+          <?php endif; ?>
+
+          <?php if (isset($_SESSION[app_sesion_usuario])) : ?>
+            <li class="nav-item"><a class="nav-link" href="<?= app_base_url ?>usuario/logout">Cerrar sesión</a></li>
+          <?php else :  ?>
+            <li class="nav-item"><a class="nav-link" href="<?= app_base_url ?>usuario/registro">Registrese aquí</a></li>
+          <?php endif; ?>
+        </ul>
+
+      </aside>
     </div>
 
     <!-- Bloque lateral derecha - Inicio -->
-    <div class="col-sm-9 p-3 mb-2 bg-secondary text-white">
+    <div class="col-sm-9 p-3 mb-2 bg-light text-white">

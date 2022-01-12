@@ -7,7 +7,7 @@
   <meta name="description" content="Bienvenidos a Nuestras Apuestas: web dedicada al control del grupo de apostantes." />
   <!-- Valores META para los ficheros PHP -->
   <meta charset="UTF-8" />
-  <link rel="icon" href="<?= base_url ?>favicon.ico" />
+  <link rel="icon" href="<?= app_base_url ?>favicon.ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- Fuente Google -->
   <link href="https://fonts.googleapis.com/css?family=Kulim+Park&display=swap" rel="stylesheet" />
@@ -18,16 +18,16 @@
   <!-- LightBox -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css" integrity="sha512-Velp0ebMKjcd9RiCoaHhLXkR1sFoCCWXNp6w4zj1hfMifYB5441C+sKeBl/T/Ka6NjBiRfBBQRaQq65ekYz3UQ==" crossorigin="anonymous" />
   <!-- Mi Estilos -->
-  <link rel="stylesheet" href="<?= base_url ?>assets/css/iconos.css" />
-  <link rel="stylesheet" href="<?= base_url ?>assets/css/estilos.css" />
+  <link rel="stylesheet" href="<?= app_base_url ?>assets/css/iconos.css" />
+  <link rel="stylesheet" href="<?= app_base_url ?>assets/css/estilos.css" />
 </head>
 
 <body>
   <!-- Menu Principal -->
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark p-0">
     <div class="container">
-      <a href="<?= base_url ?>" class="navbar-brand p-0">
-        <img class="col-logo" src="<?= base_url ?>assets/img/nuestrasapuestas-logo.svg" alt="Nuestras Apuestas" />
+      <a href="<?= app_base_url ?>" class="navbar-brand p-0">
+        <img class="col-logo" src="<?= app_base_url ?>assets/img/nuestrasapuestas-logo.svg" alt="Nuestras Apuestas" />
       </a>
       <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>

@@ -1,11 +1,11 @@
 <?php
 
 // Base del proyecto
-define("base_url", "http://localhost/New_Primitiva/");
+define("app_base_url", "http://localhost/New_Primitiva/");
 
 // Presentación por defecto.
-define("controller_default", "apuestaController");
-define("action_default", "index");
+define("app_controller_default", "apuestaController");
+define("app_action_default", "index");
 
 
 /* TEST O PRODUCTIVO */
@@ -30,3 +30,7 @@ define("app_saldominimo", 2.5);
 /* RANGO DE AÑOS */
 define("app_rangoanoini", 2003);
 define("app_rangoanofin", date("Y", time()) + 1);
+
+/* DEFINICIÓN DE PARÁMETROS DE SESIÓN */
+define("app_sesion_usuario", "identity");
+define("app_sesion_admin", "admin");
