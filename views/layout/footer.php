@@ -1,3 +1,5 @@
+</div><!-- row -->
+</div><!-- Container lado derecho -->
 <!-- Proviene del Container -->
 
 </div><!-- Bloque lateral derecha - Fin -->
@@ -47,7 +49,7 @@
 <!-- Editor -->
 <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
 <!-- Mi código -->
-<!-- <script src="./js/script.js"></script> -->
+<script src="<?= app_base_url ?>assets/js/script.js"></script>
 
 </body>
 

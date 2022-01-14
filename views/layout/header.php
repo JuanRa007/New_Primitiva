@@ -2,13 +2,13 @@
 <html lang="es">
 
 <head>
-  <title><?= app_name ?></title>
-  <!-- Descripción de la página -->
-  <meta name="description" content="Bienvenidos a Nuestras Apuestas: web dedicada al control del grupo de apostantes." />
   <!-- Valores META para los ficheros PHP -->
   <meta charset="UTF-8" />
   <link rel="icon" href="<?= app_base_url ?>favicon.ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><?= app_name ?></title>
+  <!-- Descripción de la página -->
+  <meta name="description" content="Bienvenidos a Nuestras Apuestas: web dedicada al control del grupo de apostantes." />
   <!-- Fuente Google -->
   <link href="https://fonts.googleapis.com/css?family=Kulim+Park&display=swap" rel="stylesheet" />
   <!-- Fuente FontAwesome -->
@@ -29,28 +29,18 @@
       <a href="<?= app_base_url ?>" class="navbar-brand p-0">
         <img class="col-logo" src="<?= app_base_url ?>assets/img/nuestrasapuestas-logo.svg" alt="Nuestras Apuestas" />
       </a>
-      <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+      <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item <?= ($app_pagina == "index.php") ? "active" : "" ?>">
-            <a href="index.php" class="nav-link">Inicio</a>
+          <li class="nav-item <?= (app_pagina == "index.php") ? "active" : "" ?>">
+            <a href="<?= app_base_url ?>" class="nav-link">Inicio</a>
           </li>
-          <li class="nav-item <?= ($app_pagina == "saldos.php") ? "active" : "" ?>">
-            <a href="saldos.php" class="nav-link">Saldos</a>
+          <li class="nav-item <?= (app_pagina == "saldos.php") ? "active" : "" ?>">
+            <a href="<?= app_base_url ?>" class="nav-link">Saldos</a>
           </li>
-          <li class="nav-item <?= ($app_pagina == "anteriores.php") ? "active" : "" ?>">
-            <a href="anteriores.php" class="nav-link">Historial</a>
+          <li class="nav-item <?= (app_pagina == "anteriores.php") ? "active" : "" ?>">
+            <a href="<?= app_base_url ?>" class="nav-link">Historial</a>
           </li>
-          <?php if (app_prod) : ?>
-            <li class="nav-item <?= ($app_pagina == "mensajes.php") ? "active" : "" ?>">
-              <a href="mensajes.php" class="nav-link">Blog</a>
-            </li>
-            <li class="nav-item <?= ($app_pagina == "acercade.php") ? "active" : "" ?>">
-              <a href="acercade.php" class="nav-link">Acerca de</a>
-            </li>
-          <?php endif; ?>
         </ul>
       </div>
     </div>

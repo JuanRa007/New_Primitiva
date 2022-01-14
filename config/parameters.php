@@ -12,7 +12,7 @@ define("app_action_default", "index");
 define("app_prod", "false");
 
 /* APP NOMBRE */
-define("app_name", "Nuestras Apuestas BETA MVC");
+define("app_name", "NEW Apuestas MVC");
 
 /* DATABASE CONFIGURATION */
 define("app_host", "localhost");
@@ -34,3 +34,6 @@ define("app_rangoanofin", date("Y", time()) + 1);
 /* DEFINICIÓN DE PARÁMETROS DE SESIÓN */
 define("app_sesion_usuario", "identity");
 define("app_sesion_admin", "admin");
+define("app_sesion_registro", "register");
+define("app_sesion_correcto", "complete");
+define("app_sesion_incorrecto", "failed");

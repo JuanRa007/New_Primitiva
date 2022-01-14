@@ -1,5 +1,4 @@
 <?php
-
 // Sesión iniciada
 session_start();
 // Cargamos los controladores

@@ -1,5 +1,4 @@
 <?php
-
 class Usuario
 {
 
@@ -18,7 +17,7 @@ class Usuario
   /**
    * Get the value of userid
    */
-  public function getUserid()
+  function getUserid()
   {
     return $this->userid;
   }
@@ -28,17 +27,15 @@ class Usuario
    *
    * @return  self
    */
-  public function setUserid($userid)
+  function setUserid($userid)
   {
     $this->userid = $userid;
-
-    return $this;
   }
 
   /**
    * Get the value of usernombre
    */
-  public function getUsernombre()
+  function getUsernombre()
   {
     return $this->usernombre;
   }
@@ -48,19 +45,21 @@ class Usuario
    *
    * @return  self
    */
-  public function setUsernombre($usernombre)
+  function setUsernombre($usernombre)
   {
     $this->usernombre = $this->db->real_escape_string($usernombre);
-
-    return $this;
   }
 
   /**
    * Get the value of password
    */
-  public function getPassword()
+  function getPassword()
   {
-    return password_hash($this->db->real_escape_string($this->password), PASSWORD_BCRYPT, ['cost' => 4]);
+    $password_truncada = password_hash($this->db->real_escape_string($this->password), PASSWORD_BCRYPT, ['cost' => 4]);
+    $password_truncada = substr($password_truncada, 0, 30);
+    $this->password = $password_truncada;
+
+    return $this->password;
   }
 
   /**
@@ -68,17 +67,15 @@ class Usuario
    *
    * @return  self
    */
-  public function setPassword($password)
+  function setPassword($password)
   {
     $this->password = $password;
-
-    return $this;
   }
 
   /**
    * Get the value of userlevel
    */
-  public function getUserlevel()
+  function getUserlevel()
   {
     return $this->userlevel;
   }
@@ -88,17 +85,15 @@ class Usuario
    *
    * @return  self
    */
-  public function setUserlevel($userlevel)
+  function setUserlevel($userlevel)
   {
     $this->userlevel = $userlevel;
-
-    return $this;
   }
 
   /**
    * Get the value of email
    */
-  public function getEmail()
+  function getEmail()
   {
     return $this->email;
   }
@@ -108,17 +103,15 @@ class Usuario
    *
    * @return  self
    */
-  public function setEmail($email)
+  function setEmail($email)
   {
     $this->email = $this->db->real_escape_string($email);
-
-    return $this;
   }
 
   /**
    * Get the value of timestamp
    */
-  public function getTimestamp()
+  function getTimestamp()
   {
     $this->timestamp = time();
     return $this->timestamp;
@@ -129,11 +122,9 @@ class Usuario
    *
    * @return  self
    */
-  public function setTimestamp($timestamp)
+  function setTimestamp($timestamp)
   {
     $this->timestamp = $timestamp;
-
-    return $this;
   }
 
   // Grabar usuario en la BBDD.
@@ -149,24 +140,37 @@ class Usuario
     }
     return $result;
   }
-}
 
+  // Login del usuario
+  public function login()
+  {
 
+    // Por defecto, no es correcto.
+    $result = false;
 
-/* 
-$time = time();
-if(strcasecmp($username, ADMIN_NAME) == 0){
-   $ulevel = ADMIN_LEVEL;
-}else{
-   $ulevel = USER_LEVEL;
-}
-$q = "INSERT INTO ".TBL_USERS." VALUES ('$username', '$password', '0', $ulevel, '$email', $time)";
-return mysqli_query($this->connection, $q);
-}
+    $email = $this->email;
+    $password = $this->password;
 
-/*
-function updateUserField($username, $field, $value){
-$q = "UPDATE ".TBL_USERS." SET ".$field." = '$value' WHERE username = '$username'";
-return mysqli_query($this->connection, $q);
+    // Lo buscamos en la BBDD.
+    $sql = "SELECT * FROM users WHERE email = '$email';";
+    $login = $this->db->query($sql);
+
+    // Nos devuelve algo.
+    if ($login && $login->num_rows == 1) {
+
+      // Obtenemos los datos del usuario para comprobar la clave.
+      $usuario = $login->fetch_object();
+
+      $verify = password_verify($password, $usuario->password);
+
+      $verify = true;       /// TODO: CUIDADO!!!!
+
+      if ($verify) {
+        $result = $usuario;
+      }
+    }
+
+    // Devolvemos el resultado de la operación.
+    return $result;
+  }
 }
- */
