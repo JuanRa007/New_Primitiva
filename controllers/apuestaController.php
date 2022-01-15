@@ -7,4 +7,4 @@ class apuestaController
 
     echo "<h1>Esto es solo el comienzo de un gran trabajo</h1><br><br><br><br>";
   }
-}
+}   // Fin Class apuestaController
